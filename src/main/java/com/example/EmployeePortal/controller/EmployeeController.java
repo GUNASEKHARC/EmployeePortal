@@ -4,6 +4,7 @@ import com.example.EmployeePortal.dto.EmployeeDto;
 import com.example.EmployeePortal.entity.EmployeeEntity;
 import com.example.EmployeePortal.repository.EmployeeRepo;
 import com.example.EmployeePortal.service.EmployeeService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +31,10 @@ public class EmployeeController {
     @GetMapping("/getalldetails")
     public List<EmployeeEntity> view1(){
         return employeeService.view1();
+    }
+    @GetMapping("/filter")
+    public List<EmployeeEntity> getByFilter(HttpServletRequest request)
+    {
+        return employeeService.getByFilter(request);
     }
 }//object
